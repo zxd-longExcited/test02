@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.mybatis01.dao.CmsContentDao">
+
+    <select id="getContentWithAttributeById" resultType="com.test.mybatis01.bean.Content"
+            parameterType="_int">
+        select * from cms_content a
+        left join cms_content_attribute b
+        on a.id = b.content_id
+        where a.id = #{id}
+    </select>
+
+    <select id="getContentBySiteId" resultType="com.test.mybatis01.bean.Content"
+            parameterType="_int">
+        select * from cms_content a
+        left join cms_content_attribute b
+        on a.id = b.content_id
+        where a.id in (select id from cms_content where parent_id = #{id})
+    </select>
+</mapper>
