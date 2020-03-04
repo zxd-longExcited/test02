@@ -39,13 +39,13 @@ public class MybatisTest01 {
             SqlSessionFactory factory = builder.build(in);
             SqlSession sqlSession = factory.openSession();
             CmsContentDao dao = sqlSession.getMapper(CmsContentDao.class);
-            for (Content content : dao.getContentBySiteId(107295)) {
+            for (Content content : dao.getContentByParentId(107295)) {
                 System.out.println(content);
             }
-            for (Content content : dao.getContentBySiteId(106972)) {
+            for (Content content : dao.getContentByParentId(106972)) {
                 System.out.println(content);
             }
-            for (Content content : dao.getContentBySiteId(106971)) {
+            for (Content content : dao.getContentByParentId(106971)) {
                 System.out.println(content);
             }
 

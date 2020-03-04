@@ -10,7 +10,7 @@
         where a.id = #{id}
     </select>
 
-    <select id="getContentBySiteId" resultType="com.test.mybatis01.bean.Content"
+    <select id="getContentByParentId" resultType="com.test.mybatis01.bean.Content"
             parameterType="_int">
         select * from cms_content a
         left join cms_content_attribute b
